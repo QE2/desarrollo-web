@@ -1,0 +1,168 @@
+
+/* responsive.css
+** Última modificación: 30/08/2019
+** El código crea una parrilla (grid) responsive, para aplicar a cualquier código.
+**/
+
+
+
+/* Notas. Conviene incluir la etiqueta meta viewport en todas las páginas HTML, para ajusta el viewport.
+** El meta viewport da instrucciones al navegador sobre como controlar las dimensiones de las páginas y escalar.
+** Ver más en: https://www.w3schools.com/css/css_rwd_viewport.asp  */
+
+
+* {
+    box-sizing: border-box;
+}
+/* Las columnas dentro de una fila flotan a la izquierda, por lo que quedan fuera del flujo de la página y otros 
+** elementos se ubicarán como si las columnas no existiesen. Para impedir esto, se añaden los siguientes estilos.
+** Ejemplo HTML del uso de la clase "fila":
+**  	<div class="fila">
+			<div class="col-3 col-m-3">...</div>
+			<div class="col-6 col-m-9">...</div>
+			<div class="col-3 col-m-12">...</div>
+		</div>
+*/
+.fila::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+/* Teléfonos móviles */
+[class*="col-"] {
+  float: left;
+  width: 100%;
+  /* padding: 15px-opcional */
+}
+/* para tablets: */
+@media only screen and (min-width: 600px) {
+    .col-m-1 {width: 8.33%;}
+    .col-m-2 {width: 16.66%;}
+    .col-m-3 {width: 25%;}
+    .col-m-4 {width: 33.33%;}
+    .col-m-5 {width: 41.66%;}
+    .col-m-6 {width: 50%;}
+    .col-m-7 {width: 58.33%;}
+    .col-m-8 {width: 66.66%;}
+    .col-m-9 {width: 75%;}
+    .col-m-10 {width: 83.33%;}
+    .col-m-11 {width: 91.66%;}
+    .col-m-12 {width: 100%;}
+}
+/* Para desktop: */
+@media only screen and (min-width: 768px) {
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}
+
+/* Para desktop gran tamaño (creados por mí, siguiendo la recomendación de https://www.w3schools.com/): */
+@media only screen and (min-width: 992px) {
+	 .col-g-1 {width: 8.33%;}
+    .col-g-2 {width: 16.66%;}
+    .col-g-3 {width: 25%;}
+    .col-g-4 {width: 33.33%;}
+    .col-g-5 {width: 41.66%;}
+    .col-g-6 {width: 50%;}
+    .col-g-7 {width: 58.33%;}
+    .col-g-8 {width: 66.66%;}
+    .col-g-9 {width: 75%;}
+    .col-g-10 {width: 83.33%;}
+    .col-g-11 {width: 91.66%;}
+    .col-g-12 {width: 100%;}
+}
+
+/* Para desktop extra-grande (creados por mí, siguiendo la recomendación de https://www.w3schools.com/): */
+@media only screen and (min-width: 1200px) {
+	 .col-eg-1 {width: 8.33%;}
+    .col-eg-2 {width: 16.66%;}
+    .col-eg-3 {width: 25%;}
+    .col-eg-4 {width: 33.33%;}
+    .col-eg-5 {width: 41.66%;}
+    .col-eg-6 {width: 50%;}
+    .col-eg-7 {width: 58.33%;}
+    .col-eg-8 {width: 66.66%;}
+    .col-eg-9 {width: 75%;}
+    .col-eg-10 {width: 83.33%;}
+    .col-eg-11 {width: 91.66%;}
+    .col-eg-12 {width: 100%;}
+}
+
+/* Breakpoints (puntos de rotura) típicos.
+** Existen muchos tamaños de dispositivos. Para hacerlo simple, podemos usar 5 grupos:
+** Creado según la recomendación en: https://www.w3schools.com/css/css_rwd_mediaqueries.asp
+*/
+
+ /* Dispositivos extra pequeños (teléfonos, 600px o menos) */
+@media only screen and (max-width: 600px) {...}
+
+/* Dispositivos pequeños (tablets y teléfonos grandes, 600px o más) */
+@media only screen and (min-width: 600px) {...}
+
+/* Tamaño medio (tablets apaisado (landscape), 768px o más) */
+@media only screen and (min-width: 768px) {...}
+
+/* Dispositivos grandes (laptops/desktops, 992px o más) */
+@media only screen and (min-width: 992px) {...}
+
+/* Dispositivos extra grandes (grandes laptops y desktops, 1200px o más) */
+@media only screen and (min-width: 1200px) {...} 
+
+
+
+
+/* MEDIA QUERIES 
+
+** Fuente: https://www.w3schools.com/css/css_rwd_mediaqueries.asp
+** Referencia completa @media: https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
+** Se pueden usar también para cambiar el aspecto dependiendo de la orientación del navegador
+*/
+
+
+
+/* La siguiente Media query se aplica cuando el navegador es más ancho que alto: 
+@media only screen and (orientation: landscape) {
+    body {
+        background-color: lightblue;
+    }
+} */
+
+/* Si el tamaño de pantalla es 600px de ancho o menor, esconde el elemento */
+@media only screen and (max-width: 600px) {
+  div.example {
+    display: none;
+  }
+}
+
+
+/* Media Queries QE2c */
+/* elementos ocultos desde desktop hacia abajo */
+@media only screen and (max-width: 992px) {
+	.oculto-desktop	{
+		display: none;
+	}
+}
+/* elementos ocultos desde tablet hacia abajo */
+@media only screen and (max-width: 600px) {
+	.oculto-tablet	{
+		display: none;
+	}
+}
+/* elementos ocultos para móviles */
+@media only screen and (max-width: 600px) {
+	.oculto-movil	{
+		display: none;
+	}
+}
+
+
+
