@@ -45,7 +45,7 @@ text-decoration: none;
 }
 .leer-mas-link	{
 	text-align: center;
-	width: 100%;
+	width: 94%;		/* + el 3% de padding por cada lado de 'semitransparente', = 100%  */
   position: absolute;
   bottom: 10px;
   overflow: hidden;
@@ -92,14 +92,17 @@ text-decoration: none;
  Esto puede crear la ilusión de que algo raro pasa con los estilos.</p>
  Position: absolute; es la declaración más usada para ubicar elementos dentro de una caja-imagen. w3schools.com lo asigna a un botón en medio de una imagen, 
 <b> Animación CSS "Leer más:</b> 
-<pre>
+<p>
 .caja:hover .semitransparente {padding-bottom: 45px;}
 Permite afectar a .semitransparente al hacer hover sobre .caja.
 transition: .5s ease;
 hace que las transiciones entre oculto-visible, o el desplazamiento de padding sean suaves.
-</pre>
- </div>
- 
+</p>
+
+<p><i>.leer-mas-link {width: 94%;}</i>: Observar bien este detalle. Poner el 100% de ancho a un elemento dentro de otro, 
+que le empuja con un valor de padding, puede conducir fácilmente al desbordamiento del ancho, creando un scroll horizontal 
+anti estético y anti responsive.</p>
+</div>
  
 </body>
 </html>
