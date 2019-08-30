@@ -1,0 +1,106 @@
+<!-- Caja de imagen con zona inferior semitransparente, texto blanco y link animado "Leer más" -->
+<!-- Ejemplo extraído de https://www.zappa.com/ -->
+
+<!DOCTYPE html>
+
+<html lang="es-ES" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8" />
+<title>Caja imagen con zona semitransparente con texto</title>
+
+<link rel="stylesheet" type="text/css" href="../css/responsive.css">
+<style type="text/css">
+
+.caja	{
+	position: relative;
+	display: flex;
+}
+.caja img {
+	max-width: 100%;
+}
+.semitransparente	{
+	background: rgba(10,10,10,.75);
+	padding: .7rem;
+	display: flex;
+	flex-wrap: wrap;
+	-webkit-box-align: stretch;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	color: white;
+	width: 100%;	/* Necesario. Si la línea de texto no llegase hasta el final, sin width: 100%; 'semitransparente' tampoco lo haría  */
+	transition: .5s ease;
+}
+
+.semitransparente	a {
+color: #fefefe;
+line-height: 90%;
+text-decoration: none;
+}
+.semitransparente h3	{
+	margin: 5px auto;
+}
+.semitransparente p	{
+	margin: 5px 0;
+}
+.leer-mas-link	{
+	text-align: center;
+	width: 100%;
+  position: absolute;
+  bottom: 10px;
+  overflow: hidden;
+  transition: .5s ease;
+  opacity: 0;
+}
+.caja:hover .semitransparente {
+	padding-bottom: 45px;
+}
+
+.caja:hover .leer-mas-link {
+	opacity: 1;
+	/* height: 25px; */
+	transition: .5s ease;
+}
+</style>
+</head>
+
+
+<body>
+<div class="fila">
+	<div class="col-6 col-g-5">
+  		<div class="caja">
+  		<img src="http://quoartis.org/cmsa/wp-content/uploads/2018/08/pesquet_with_inner_telescope-768x511.jpg" alt="">
+		
+
+<!-- Empieza la zona semitransparente -->
+    		<div class="semitransparente">
+				<h3>Art in Zero Gravity: Eduardo Kac</h3>
+				<span class="oculto-desktop">The artwork of Eduardo Kac (pronounced Katz) briefly summarized in this entry has some similarities with the 
+			previously reviewed works by Arthur Woods. [...]</span>
+			
+			<div class="leer-mas-link"><a href="http://quoartis.qe2computing.com/news/art-in-zero-gravity-eduardo-kac/">READ MORE</a></div>
+ 			</div>
+		</div>
+</div> <!-- Fin de columna -->
+</div> <!-- Fin de la fila -->
+
+
+<div class="fila">
+<h3>Notas</h3>
+<p>Es necesario que la capa exterior 'caja', o un padre suyo tenga ancho definido (width) en px o %, para que 'semitransparente' no se desborde.</p>
+<p> Si se escribe texto sin espacios, el comportamiento estándar de HTML es no romper la línea, y así el texto se desborda por la derecha en vez de adaptarse a la caja que lo contiene. 
+ Esto puede crear la ilusión de que algo raro pasa con los estilos.</p>
+ Position: absolute; es la declaración más usada para ubicar elementos dentro de una caja-imagen. w3schools.com lo asigna a un botón en medio de una imagen, 
+<b> Animación CSS "Leer más:</b> 
+<pre>
+.caja:hover .semitransparente {padding-bottom: 45px;}
+Permite afectar a .semitransparente al hacer hover sobre .caja.
+transition: .5s ease;
+hace que las transiciones entre oculto-visible, o el desplazamiento de padding sean suaves.
+</pre>
+ </div>
+ 
+ 
+</body>
+</html>
+  
