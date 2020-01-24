@@ -9,85 +9,98 @@
 
 <link rel="stylesheet" type="text/css" href="responsive.css">
 <style type="text/css">
-
-.caja	{
+#contenedor-proyectos	{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+#contenedor-proyectos > div	{
+	width: 420px;
+	margin: auto;
+	flex-grow: 1;
+	max-width: 620px;
+}
+.caja-st	{
 	position: relative;
 	display: flex;
-}
-.caja img {
-	max-width: 100%;
+	margin: 10px;
 }
 .semitransparente	{
-	background: rgba(10,10,10,.75);
-	padding: .7rem;
+	background: rgba(10,10,10,.6);
+	padding: 3%;
 	display: flex;
 	flex-wrap: wrap;
 	-webkit-box-align: stretch;
 	position: absolute;
-	bottom: 0;
+	bottom: 7px;
 	left: 0;
 	color: white;
 	width: 100%;	/* Necesario. Si la línea de texto no llegase hasta el final, sin width: 100%; 'semitransparente' tampoco lo haría  */
 	transition: .5s ease;
 }
-
-.semitransparente	a {
+.caja-st .semitransparente	a {
 color: #fefefe;
-line-height: 90%;
 text-decoration: none;
 }
-.semitransparente h3	{
-	margin: 5px auto;
-}
-.semitransparente p	{
-	margin: 5px 0;
-}
+.caja-st .semitransparente h2	{margin: 0px auto;color: white;}
+.caja-st .semitransparente p	{margin: 5px 0;line-height: 1.2;}
 .leer-mas-link	{
 	text-align: center;
-	width: 94%;		/* + el 3% de padding por cada lado de 'semitransparente', = 100%  */
-  position: absolute;
-  bottom: 10px;
-  overflow: hidden;
-  transition: .5s ease;
-  opacity: 0;
+	width: 94%;				/* + el 3% de padding por cada lado de 'semitransparente', = 100%  */
+	position: absolute;
+	bottom: 10px;
+	overflow: hidden;
+	transition: .5s ease;
+	opacity: 0;
 }
-.caja:hover .semitransparente {
+.caja-st:hover .semitransparente {
 	padding-bottom: 45px;
 }
-
-.caja:hover .leer-mas-link {
+.caja-st:hover .leer-mas-link {
 	opacity: 1;
 	/* height: 25px; */
 	transition: .5s ease;
 }
+.semitransparente h3 {
+	color:white;
+	margin: 0 auto;
+	font-size: 21px;
+}
+@media only screen and (min-width: 600px) {.semitransparente h3 {font-size: 26px;}}
+@media only screen and (max-width: 600px) {.oculto-movil {display: none;}}
 </style>
 </head>
 
 
 <body>
-<div class="fila">
-	<div class="col-6 col-g-5">
-  		<div class="caja">
-  		<img src="https://www.qe2computing.com/wp-content/uploads/2018/12/Suecia-Estocolomo-CC0-no-atrib-1100px.jpg" alt="">
-		
 
-<!-- Empieza la zona semitransparente -->
-    		<div class="semitransparente">
-				<h3>Estocolmo. Capital de Suecia</h3>
-				<p class="oculto-desktop">Capital y ciudad más grande de Suecia. 
-Es administrativamente un municipio de la provincia homónima, nombrada por la GaWC 
-como una ciudad global de «clase alfa» [...]</p>
-			
-			<div class="leer-mas-link"><a href="https://www.qe2computing.com/programacion/web/">READ MORE</a></div>
- 			</div>
-		</div>
-</div> <!-- Fin de columna -->
-</div> <!-- Fin de la fila -->
+<div id="contenedor-proyectos">
+<div>
+<div class="caja-st">
+<a href="https://fundacionraed.org/campus-sostenibilidad/">
+<img src="https://fundacionraed.org/wp-content/uploads/2019/10/sostenibilidad-desarrollo-sostenible-shutt.jpg">
+<div class="semitransparente">
+	<h3>#3 Campus Sostenibilidad</h3>
+	<div class="oculto-movil"><p>Aportar iniciativas que lleven a mejorar las actuales carencias sociales y políticas que están lastrando la solución al problema del cambio climático</p> </div>
+<div class="leer-mas-link">LEER MÁS</div></div></a></div></div>
+
+<div>
+<div class="caja-st">
+<a href="https://fundacionraed.org/dando-futuro/">
+<img src="https://fundacionraed.org/wp-content/uploads/2019/10/shutt_niña-mision-humanitaria.jpg">
+<div class="semitransparente">
+	<h3>#5 Dando futuro</h3>
+	<div class="oculto-movil"><p>Facilitar, a niños de países en vías de desarrollo, la posibilidad de ser tratados de patologías y que reciban cuidados médicos y quirúrgicos</p> </div>
+<div class="leer-mas-link">LEER MÁS</div></div></a></div></div>
+
+
+</div> <!-- #contenedor-proyectos -->
+
 
 
 <div class="fila">
 <h3>Notas</h3>
-<p>Es necesario que la capa exterior 'caja', o un padre suyo tenga ancho definido (width) en px o %, para que 'semitransparente' no se desborde.</p>
+<p>Es necesario que la capa exterior 'caja-st', o un padre suyo tenga ancho definido (width) en px o %, para que 'semitransparente' no se desborde.</p>
 <p> Si se escribe texto sin espacios, el comportamiento estándar de HTML es no romper la línea, y así el texto se desborda por la derecha en vez de adaptarse a la caja que lo contiene. 
  Esto puede crear la ilusión de que algo raro pasa con los estilos.</p>
  Position: absolute; es la declaración más usada para ubicar elementos dentro de una caja-imagen. w3schools.com lo asigna a un botón en medio de una imagen, 
